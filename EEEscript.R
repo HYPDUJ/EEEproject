@@ -21,14 +21,14 @@ data1$beta_norm <- beta_norm
 
 #standard error normalization
 
-sd_norm <- vector()
+se_norm <- vector()
 
-sd_norm <- data1$standard.error..beta.*data1$mean.mortality.rate.per.1.10.5
+se_norm <- data1$standard.error..beta.*data1$mean.mortality.rate.per.1.10.5
 
-data1$sd_norm <- sd_norm
+data1$se_norm <- se_norm
 
 # Computation of weights
 
-sumwyd <- sum(1/data1$sd_norm, na.rm = T)
-data1$wyd <- (1/data1$sd_norm)/sumwyd
+sumwyd <- sum(1/data1$se_norm, na.rm = T)
+data1$wyd <- (1/data1$se_norm)/sumwyd
 
