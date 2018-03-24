@@ -13,12 +13,7 @@ View(data1)
 
 # estimates normalization
 as.data.frame(data1)
-data1[5,5] = 0.1 # if I dont have a value for all lines plot 1 doesn't work
-data1[6,5] = 0.1
-data1[7,5] = 0.1
-data1[1,5] = 0.1
-data1[1,4] = 0.1
-data1[1,3] = 10
+
 
 beta_norm <-vector()
 
@@ -64,11 +59,8 @@ data1$lower.95 <- lower.95
   #############################
   ###   GRAPH 1 ###
 
-ggplot() + 
-    geom_errorbar(data=data1, mapping=aes(x=data1$paper.id, ymin=data1$lower.95, ymax=data1$upper.95) + 
-    geom_point(data=data1, mapping=aes(x=data1$paper.id, y=data1$beta_norm), size=4, shape=21, fill="white")) 
-  
-  
-  
-  
-  #B<-B + theme_economist()
+A <- ggplot() + 
+    geom_errorbar(data=data1, mapping=aes(x=data1$paper.id, ymin=data1$lower.95, ymax=data1$upper.95), width=0.2, size=1, color="blue") + 
+    geom_point(data=data1, mapping=aes(x=data1$paper.id, y=data1$beta_norm), size=4, shape=21, fill="white")
+A <- A + theme_economist()  
+A  
