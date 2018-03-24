@@ -1,8 +1,11 @@
 # EEE Project
 #  Meta-analysis
 
-install.packages("meta")
-library(meta)
+#install.packages("meta")
+#library(meta)
+library(ggplot2)
+install.packages("ggthemes")
+library(ggthemes)
 
 #Change your the dataset path
 data1 <- read.csv("~/M2-ERNA/Spring Term/Empirical Environmental Econ/Meta-analysis/RESULTS PAPER CLIMATE AND HEALTH - R dataset.csv")
@@ -48,3 +51,14 @@ lower.95 <- data1$beta_norm - 2*data1$se_norm
 
 data1$lower.95 <- lower.95
 
+
+  data1 <- data1[,c(1,2,3,4,5,8,9,11,12,10,6,7)] # reordering the dataset
+
+
+  #############################
+  ###   GRAPH 1 ###
+  
+  B=ggplot() + 
+    geom_errorbar(data=data1, mapping=aes(x=id, ymin=lower.95, ymax=upper.95), width=0.2, size=1, color="blue") + 
+    geom_point(data=data1, mapping=aes(x=id, y=beta_norm), size=4, shape=21, fill="white") 
+  B<-B + theme_economist()
