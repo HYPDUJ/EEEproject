@@ -30,5 +30,21 @@ data1$se_norm <- se_norm
 # Computation of weights
 
 sumwyd <- sum(1/data1$se_norm, na.rm = T)
+
 data1$wyd <- (1/data1$se_norm)/sumwyd
+
+# Computation of confidence intervals
+
+upper.95 <-vector()
+
+upper.95 <- data1$beta_norm + 2*data1$se_norm
+
+data1$upper.95 <- upper.95
+
+
+lower.95 <-vector()
+
+lower.95 <- data1$beta_norm - 2*data1$se_norm
+
+data1$lower.95 <- lower.95
 
