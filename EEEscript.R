@@ -60,7 +60,7 @@ data1$lower.95 <- lower.95
   ###   GRAPH 1 ###
 
 A <- ggplot() + 
-    geom_errorbar(data=data1, mapping=aes(x=data1$paper.id, ymin=data1$lower.95, ymax=data1$upper.95), width=0.2, size=1, color="blue") + 
-    geom_point(data=data1, mapping=aes(x=data1$paper.id, y=data1$beta_norm), size=4, shape=21, fill="white")
+    geom_errorbar(data=data1, mapping=aes(x=data1$paper.id, ymin=data1$lower.95, ymax=data1$upper.95), width=0.3, size=0.5, color="blue") + 
+    geom_point(data=data1, mapping=aes(x=data1$paper.id, y=data1$beta_norm), size=3, shape=21, fill="blue")
 A <- A + theme_economist()  
 A  
