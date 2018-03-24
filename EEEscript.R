@@ -17,6 +17,8 @@ beta_norm <- data1$beta*data1$mean.mortality.rate.per.1.10.5 # Gives the average
 
 data1$beta_norm <- beta_norm
 
+
+
 #standard error normalization
 
 sd_norm <- vector()
