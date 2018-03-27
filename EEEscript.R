@@ -33,9 +33,9 @@ data1$se_norm <- se_norm
 
 # Computation of weights
 
-sumwyd <- sum(1/data1$se_norm, na.rm = T)
+sumsigmaB_ys <- sum(1/data1$se_norm, na.rm = T)
 
-data1$wyd <- (1/data1$se_norm)/sumwyd
+data1$wyd <- (1/data1$se_norm)/sumsigmaB_ys
 
 # Computation of confidence intervals
 
