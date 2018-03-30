@@ -63,7 +63,7 @@ data1 <- data1[,c(1,2,3,4,5,8,9,11,12,13,10,6,7)] # reordering the dataset
 
 #computation of the weighted sum estimate
 beta_norm_bar <- weighted.mean(data1$beta_norm,data1$wyd, na.rm = T) #weighted sum of coef estimates
-se_norm_bar <- sqrt(sum(data1$se_norm^2, na.rm = T)/length(data1$se_norm)) #average se_norm
+se_norm_bar <- sqrt(weighted.mean(data1$se_norm,data1$wyd, na.rm = T)) #average se_norm
 
 upper.95 <- beta_norm_bar + 2*se_norm_bar
 lower.95 <- beta_norm_bar - 2*se_norm_bar
@@ -94,7 +94,7 @@ data2 <- data1[data1$paper.id!="Bbar",]
 newdata<-data2[data1$Author.s.initials!="D", ] # Outlier
 
 beta_norm_bar <- weighted.mean(newdata$beta_norm,newdata$wyd, na.rm = T) #weighted sum of coef estimates
-se_norm_bar <- sqrt(sum((newdata$se_norm*newdata$wyd)^2, na.rm = T)/length(newdata$se_norm)) #average se_norm
+se_norm_bar <- sqrt(weighted.mean(newdata$se_norm,newdata$wyd, na.rm = T)) #average se_norm
 
 upper.95 <- beta_norm_bar + 2*se_norm_bar
 lower.95 <- beta_norm_bar - 2*se_norm_bar
