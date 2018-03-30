@@ -8,7 +8,7 @@ library(snowfall)
 library(ggplot2)
 library(ggthemes)
 
-#Change your the dataset path
+#Change your dataset path
 setwd("C:/Users/victo/OneDrive/Documents/TSE MASTER 2/semestre 2/EMPIRICAL ENVIRONMENTAL ECONNOMICS")
 data1 <- read.csv("~/M2-ERNA/Spring Term/Empirical Environmental Econ/Meta-analysis/RESULTS PAPER CLIMATE AND HEALTH - R dataset.csv")
 View(data1)
